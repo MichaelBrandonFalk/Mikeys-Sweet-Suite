@@ -106,11 +106,7 @@
       }
 
       .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1.06fr) minmax(290px, 0.94fr);
-        gap: 34px;
-        align-items: end;
-        margin-bottom: 28px;
+        margin-bottom: 34px;
       }
 
       h1 {
@@ -127,97 +123,6 @@
         color: var(--muted);
         font-size: 18px;
         line-height: 1.65;
-      }
-
-      .snapshot {
-        border: 1px solid rgba(23, 33, 29, 0.12);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.76);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
-
-      .snapshot-head {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        min-height: 42px;
-        padding: 0 16px;
-        border-bottom: 1px solid rgba(23, 33, 29, 0.1);
-        background: rgba(248, 250, 246, 0.9);
-      }
-
-      .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 999px;
-        background: var(--honey);
-      }
-
-      .dot:nth-child(2) {
-        background: var(--sky);
-      }
-
-      .dot:nth-child(3) {
-        background: var(--green);
-      }
-
-      .snapshot-body {
-        padding: 20px;
-      }
-
-      .stat-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        margin-bottom: 18px;
-      }
-
-      .stat {
-        min-height: 82px;
-        padding: 14px;
-        border: 1px solid rgba(23, 33, 29, 0.1);
-        border-radius: 8px;
-        background: #fff;
-      }
-
-      .stat strong {
-        display: block;
-        margin-bottom: 3px;
-        color: var(--plum);
-        font-size: 28px;
-        line-height: 1;
-      }
-
-      .stat span {
-        color: var(--muted);
-        font-size: 13px;
-        font-weight: 700;
-      }
-
-      .mini-list {
-        display: grid;
-        gap: 9px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .mini-list li {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 11px 12px;
-        border: 1px solid rgba(23, 33, 29, 0.1);
-        border-radius: 8px;
-        background: #fff;
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      .mini-list b {
-        color: var(--ink);
       }
 
       .section-heading {
@@ -348,38 +253,6 @@
         height: 17px;
       }
 
-      .source-list {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-        margin-top: 16px;
-      }
-
-      .source {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 18px;
-        min-height: 88px;
-        padding: 16px 18px;
-        border: 1px solid rgba(23, 33, 29, 0.12);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.82);
-        text-decoration: none;
-      }
-
-      .source strong {
-        display: block;
-        margin-bottom: 4px;
-        font-size: 17px;
-      }
-
-      .source span {
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.45;
-      }
-
       footer {
         margin-top: 48px;
         padding-top: 20px;
@@ -389,14 +262,8 @@
       }
 
       @media (max-width: 900px) {
-        .hero,
-        .suite-grid,
-        .source-list {
+        .suite-grid {
           grid-template-columns: 1fr;
-        }
-
-        .snapshot {
-          max-width: 620px;
         }
       }
 
@@ -407,8 +274,7 @@
         }
 
         .topbar,
-        .section-heading,
-        .source {
+        .section-heading {
           align-items: stretch;
           flex-direction: column;
         }
@@ -423,10 +289,6 @@
 
         .intro {
           font-size: 16px;
-        }
-
-        .stat-grid {
-          grid-template-columns: 1fr;
         }
 
         .card {
@@ -462,40 +324,12 @@
             One public front door for the GitHub Pages tools, download hubs, and small utilities that make repeat work faster.
           </p>
         </div>
-        <aside class="snapshot" aria-label="Suite snapshot">
-          <div class="snapshot-head" aria-hidden="true">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-          <div class="snapshot-body">
-            <div class="stat-grid">
-              <div class="stat">
-                <strong>12</strong>
-                <span>public pages</span>
-              </div>
-              <div class="stat">
-                <strong>3</strong>
-                <span>main lanes</span>
-              </div>
-              <div class="stat">
-                <strong>1</strong>
-                <span>sweet suite</span>
-              </div>
-            </div>
-            <ul class="mini-list">
-              <li><b>Naming</b><span>References, captions, file cleanup</span></li>
-              <li><b>Delivery</b><span>Avails, TE, Rally mapping</span></li>
-              <li><b>Downloads</b><span>Installers, docs, helper tools</span></li>
-            </ul>
-          </div>
-        </aside>
       </section>
 
       <section aria-labelledby="pages-title">
         <div class="section-heading">
-          <h2 id="pages-title">Landing Pages</h2>
-          <p>Each card opens the live GitHub Pages site for that tool or download hub.</p>
+          <h2 id="pages-title">The List</h2>
+          <p>All entries live in one place now. Most open a public GitHub Pages site; repo-only entries are labeled.</p>
         </div>
 
         <div class="suite-grid">
@@ -642,27 +476,40 @@
             <p>Turn ElevenLabs Scribe output into cleaner caption files with app, CLI, and browser options.</p>
             <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </a>
-        </div>
-      </section>
 
-      <section aria-labelledby="source-title">
-        <div class="section-heading">
-          <h2 id="source-title">More Repos</h2>
-          <p>These are useful source pages that do not currently advertise a separate GitHub Pages landing URL.</p>
-        </div>
-        <div class="source-list">
-          <a class="source" href="https://github.com/MichaelBrandonFalk/Chrome-Terminal-Script-to-Copy-Slack-Message-Text">
-            <span>
-              <strong>Chrome Terminal Script to Copy Slack Message Text</strong>
-              <span>Repository for the Chrome DevTools script that captures Slack thread text.</span>
-            </span>
+          <a class="card" href="https://michaelbrandonfalk.github.io/github-snapshot-backup-lite/">
+            <div class="card-top">
+              <span class="icon green" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="m8 11 4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="badge">Backup</span>
+            </div>
+            <h3>GitHub Snapshot Backup Lite</h3>
+            <p>Download and review the lightweight utility for keeping regular snapshots of GitHub repositories.</p>
+            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="card" href="https://github.com/MichaelBrandonFalk/Chrome-Terminal-Script-to-Copy-Slack-Message-Text">
+            <div class="card-top">
+              <span class="icon plum" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 8h10M7 12h7M7 16h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/></svg>
+              </span>
+              <span class="badge">Repo</span>
+            </div>
+            <h3>Chrome Terminal Script to Copy Slack Message Text</h3>
+            <p>Repository for the Chrome DevTools script that captures Slack message text.</p>
             <span class="card-footer">Open repo <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </a>
-          <a class="source" href="https://github.com/MichaelBrandonFalk">
-            <span>
-              <strong>Full GitHub Profile</strong>
-              <span>Browse the rest of the public utilities, experiments, and project repos.</span>
-            </span>
+
+          <a class="card" href="https://github.com/MichaelBrandonFalk">
+            <div class="card-top">
+              <span class="icon ink" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M9 19c-4.2 1.3-4.2-2-6-2.4M15 22v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.7-1.4 5.7-6.2 0-1.4-.5-2.6-1.3-3.5.1-.3.6-1.8-.1-3.5 0 0-1.1-.3-3.6 1.3a12.3 12.3 0 0 0-6.4 0C6.3 3 5.2 3.3 5.2 3.3c-.7 1.7-.2 3.2-.1 3.5-.8.9-1.3 2.1-1.3 3.5 0 4.8 2.9 5.9 5.7 6.2-.4.4-.6.8-.6 1.6V22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="badge">Profile</span>
+            </div>
+            <h3>Full GitHub Profile</h3>
+            <p>Browse the rest of the public utilities, experiments, and project repositories.</p>
             <span class="card-footer">Open profile <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </a>
         </div>
