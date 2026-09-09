@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mikey's Sweet Suite</title>
+    <meta
+      name="description"
+      content="A public directory for Michael Brandon Falk's GitHub Pages tools, downloads, and utilities."
+    >
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #17211d;
+        --muted: #536159;
+        --line: #d7ddd5;
+        --paper: #f8faf6;
+        --panel: #ffffff;
+        --mint: #d9f2df;
+        --green: #157347;
+        --plum: #64346c;
+        --honey: #f5c451;
+        --sky: #bde3ee;
+        --shadow: 0 18px 50px rgba(23, 33, 29, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 12% 16%, rgba(245, 196, 81, 0.26), transparent 24rem),
+          radial-gradient(circle at 92% 4%, rgba(189, 227, 238, 0.48), transparent 22rem),
+          linear-gradient(135deg, #fbfbf4 0%, #eef7f0 48%, #f7f4fb 100%);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0 48px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 42px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .mark {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        place-items: center;
+        border: 1px solid rgba(21, 115, 71, 0.18);
+        border-radius: 8px;
+        background: linear-gradient(145deg, #ffffff, var(--mint));
+        box-shadow: 0 10px 28px rgba(21, 115, 71, 0.16);
+      }
+
+      .mark svg {
+        width: 27px;
+        height: 27px;
+      }
+
+      .github-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        min-height: 42px;
+        padding: 0 14px;
+        border: 1px solid rgba(23, 33, 29, 0.14);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.78);
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .github-link svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.06fr) minmax(290px, 0.94fr);
+        gap: 34px;
+        align-items: end;
+        margin-bottom: 28px;
+      }
+
+      h1 {
+        max-width: 730px;
+        margin: 0;
+        font-size: clamp(44px, 8vw, 96px);
+        line-height: 0.91;
+        letter-spacing: 0;
+      }
+
+      .intro {
+        max-width: 660px;
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.65;
+      }
+
+      .snapshot {
+        border: 1px solid rgba(23, 33, 29, 0.12);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.76);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .snapshot-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 42px;
+        padding: 0 16px;
+        border-bottom: 1px solid rgba(23, 33, 29, 0.1);
+        background: rgba(248, 250, 246, 0.9);
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--honey);
+      }
+
+      .dot:nth-child(2) {
+        background: var(--sky);
+      }
+
+      .dot:nth-child(3) {
+        background: var(--green);
+      }
+
+      .snapshot-body {
+        padding: 20px;
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .stat {
+        min-height: 82px;
+        padding: 14px;
+        border: 1px solid rgba(23, 33, 29, 0.1);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .stat strong {
+        display: block;
+        margin-bottom: 3px;
+        color: var(--plum);
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .mini-list {
+        display: grid;
+        gap: 9px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .mini-list li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 11px 12px;
+        border: 1px solid rgba(23, 33, 29, 0.1);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .mini-list b {
+        color: var(--ink);
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 18px;
+        margin: 42px 0 16px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(26px, 3.4vw, 42px);
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      .section-heading p {
+        max-width: 460px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .suite-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        position: relative;
+        display: grid;
+        min-height: 224px;
+        padding: 18px;
+        border: 1px solid rgba(23, 33, 29, 0.12);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0 10px 32px rgba(23, 33, 29, 0.08);
+        text-decoration: none;
+        transition: transform 170ms ease, box-shadow 170ms ease, border-color 170ms ease;
+      }
+
+      .card:hover,
+      .card:focus-visible {
+        border-color: rgba(21, 115, 71, 0.42);
+        box-shadow: 0 18px 40px rgba(23, 33, 29, 0.14);
+        outline: none;
+        transform: translateY(-3px);
+      }
+
+      .card-top {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .icon {
+        display: grid;
+        flex: 0 0 auto;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border-radius: 8px;
+        color: #fff;
+      }
+
+      .icon svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .icon.green {
+        background: var(--green);
+      }
+
+      .icon.plum {
+        background: var(--plum);
+      }
+
+      .icon.honey {
+        background: #b57400;
+      }
+
+      .icon.ink {
+        background: var(--ink);
+      }
+
+      .badge {
+        padding: 5px 8px;
+        border: 1px solid rgba(23, 33, 29, 0.12);
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .card h3 {
+        margin: 26px 0 8px;
+        font-size: 21px;
+        line-height: 1.15;
+        letter-spacing: 0;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.52;
+      }
+
+      .card-footer {
+        align-self: end;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 20px;
+        color: var(--green);
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .card-footer svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      .source-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 16px;
+      }
+
+      .source {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        min-height: 88px;
+        padding: 16px 18px;
+        border: 1px solid rgba(23, 33, 29, 0.12);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.82);
+        text-decoration: none;
+      }
+
+      .source strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 17px;
+      }
+
+      .source span {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.45;
+      }
+
+      footer {
+        margin-top: 48px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(23, 33, 29, 0.14);
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .suite-grid,
+        .source-list {
+          grid-template-columns: 1fr;
+        }
+
+        .snapshot {
+          max-width: 620px;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .page {
+          width: min(100% - 22px, 1120px);
+          padding-top: 18px;
+        }
+
+        .topbar,
+        .section-heading,
+        .source {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .github-link {
+          justify-content: center;
+        }
+
+        .hero {
+          gap: 24px;
+        }
+
+        .intro {
+          font-size: 16px;
+        }
+
+        .stat-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .card {
+          min-height: 210px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="topbar" aria-label="Primary">
+        <div class="brand">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 3.5 14.6 9l5.9.8-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.8L12 3.5Z" fill="#157347"/>
+              <path d="M8.8 12.1h6.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span>Mikey's Sweet Suite</span>
+        </div>
+        <a class="github-link" href="https://github.com/MichaelBrandonFalk" aria-label="Open Michael Brandon Falk on GitHub">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 19c-4.2 1.3-4.2-2-6-2.4M15 22v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.7-1.4 5.7-6.2 0-1.4-.5-2.6-1.3-3.5.1-.3.6-1.8-.1-3.5 0 0-1.1-.3-3.6 1.3a12.3 12.3 0 0 0-6.4 0C6.3 3 5.2 3.3 5.2 3.3c-.7 1.7-.2 3.2-.1 3.5-.8.9-1.3 2.1-1.3 3.5 0 4.8 2.9 5.9 5.7 6.2-.4.4-.6.8-.6 1.6V22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          GitHub
+        </a>
+      </nav>
+
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <h1 id="page-title">Mikey's Sweet Suite</h1>
+          <p class="intro">
+            One public front door for the GitHub Pages tools, download hubs, and small utilities that make repeat work faster.
+          </p>
+        </div>
+        <aside class="snapshot" aria-label="Suite snapshot">
+          <div class="snapshot-head" aria-hidden="true">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="snapshot-body">
+            <div class="stat-grid">
+              <div class="stat">
+                <strong>12</strong>
+                <span>public pages</span>
+              </div>
+              <div class="stat">
+                <strong>3</strong>
+                <span>main lanes</span>
+              </div>
+              <div class="stat">
+                <strong>1</strong>
+                <span>sweet suite</span>
+              </div>
+            </div>
+            <ul class="mini-list">
+              <li><b>Naming</b><span>References, captions, file cleanup</span></li>
+              <li><b>Delivery</b><span>Avails, TE, Rally mapping</span></li>
+              <li><b>Downloads</b><span>Installers, docs, helper tools</span></li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <section aria-labelledby="pages-title">
+        <div class="section-heading">
+          <h2 id="pages-title">Landing Pages</h2>
+          <p>Each card opens the live GitHub Pages site for that tool or download hub.</p>
+        </div>
+
+        <div class="suite-grid">
+          <a class="card" href="https://michaelbrandonfalk.github.io/ExternalReferenceMaker/">
+            <div class="card-top">
+              <span class="icon green" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M10 13a5 5 0 0 0 7.1 0l2.1-2.1a5 5 0 0 0-7.1-7.1L11 4.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 11a5 5 0 0 0-7.1 0l-2.1 2.1a5 5 0 0 0 7.1 7.1L13 19.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="badge">Reference</span>
+            </div>
+            <h3>External Reference Maker</h3>
+            <p>Generate clean external references for content records, deliveries, and downstream tracking.</p>
+            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="card" href="https://michaelbrandonfalk.github.io/UltimateAvailMaker/">
+            <div class="card-top">
+              <span class="icon plum" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16M4 12h16M4 19h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="badge">Avails</span>
+            </div>
+            <h3>Ultimate Avail Maker</h3>
+            <p>Create platform-ready availability sheets for Standard EMA and YouTube workflows.</p>
+            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="card" href="https://michaelbrandonfalk.github.io/NameEverythingBetter/">
+            <div class="card-top">
+              <span class="icon honey" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M7 7v10a4 4 0 0 0 4 4h2a4 4 0 0 0 4-4V7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="badge">Naming</span>
+            </div>
+            <h3>Name Everything Better</h3>
+            <p>Use naming helpers and conventions for cleaner video assets, art files, and package paths.</p>
+            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="card" href="https://michaelbrandonfalk.github.io/Subtitle-Converter/">
+            <div class="card-top">
+              <span class="icon ink" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/><path d="M7 11h4M7 15h7M15 11h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="badge">Captions</span>
+            </div>
+            <h3>Subtitle Converter</h3>
+            <p>Convert subtitle files between common caption formats from a browser-friendly tool page.</p>
+            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="card" href="https://michaelbrandonfalk.github.io/S3-Organizer/">
+            <div class="card-top">
+              <span class="icon green" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4z" stroke="currentColor" stroke-width="2"/><path d="M7 7V5h10v2M8 11h8M8 15h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="badge">Downloads</span>
+            </div>
+            <h3>S3 Organizer Downloads</h3>
+            <p>Find current S3 Organizer app downloads and supporting release notes in one place.</p>
+            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="card" href="https://michaelbrandonfalk.github.io/CussBuster2000/">
+            <div class="card-top">
+              <span class="icon plum" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 3 4 6v6c0 5 3.4 7.8 8 9 4.6-1.2 8-4 8-9V6l-8-3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m9 12 2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="badge">Cleanup</span>
+            </div>
+            <h3>Cuss Buster 2000</h3>
+            <p>Check and clean text with a lightweight page built for fast review passes.</p>
+            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="card" href="https://michaelbrandonfalk.github.io/TE-Tool/">
+            <div class="card-top">
+              <span class="icon honey" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2"/><path d="M8 9h8M8 13h8M8 17h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="badge">TE</span>
+            </div>
+            <h3>TE Tool Downloads</h3>
+            <p>Open the TE Tool download page with install notes and task-specific documentation.</p>
+            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="card" href="https://michaelbrandonfalk.github.io/Local-File-Renamer/">
+            <div class="card-top">
+              <span class="icon ink" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h7l2 2h7v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 14h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="badge">Files</span>
+            </div>
+            <h3>Local File Renamer</h3>
+            <p>Batch-rename local files with a focused tool page for controlled cleanup work.</p>
+            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="card" href="https://michaelbrandonfalk.github.io/rally-connect-input-csv-maker-downloads/">
+            <div class="card-top">
+              <span class="icon green" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M8 7h12M8 12h12M8 17h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 7h.01M4 12h.01M4 17h.01" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+              </span>
+              <span class="badge">Rally</span>
+            </div>
+            <h3>Rally Connect Input CSV Maker</h3>
+            <p>Download the Rally Connect CSV maker, mapping guides, and reference spreadsheets.</p>
+            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="card" href="https://michaelbrandonfalk.github.io/HISTI/">
+            <div class="card-top">
+              <span class="icon plum" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 20V4M5 20h15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 16v-5M13 16V8M17 16v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="badge">Tool</span>
+            </div>
+            <h3>HISTI V1.2</h3>
+            <p>Open the HISTI landing page for the current browser-hosted helper tool.</p>
+            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="card" href="https://michaelbrandonfalk.github.io/iconik-locator/">
+            <div class="card-top">
+              <span class="icon honey" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z" stroke="currentColor" stroke-width="2"/><path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="2"/></svg>
+              </span>
+              <span class="badge">Forked</span>
+            </div>
+            <h3>Iconik Locator</h3>
+            <p>Paste an iconik link and look up the matching S3 path from a simple public page.</p>
+            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="card" href="https://michaelbrandonfalk.github.io/11Labs_LiteCaptionMaker/">
+            <div class="card-top">
+              <span class="icon ink" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 4v16M17 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 8h4M10 12h4M10 16h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <span class="badge">Captions</span>
+            </div>
+            <h3>ElevenLabs Lite Caption Maker</h3>
+            <p>Turn ElevenLabs Scribe output into cleaner caption files with app, CLI, and browser options.</p>
+            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+        </div>
+      </section>
+
+      <section aria-labelledby="source-title">
+        <div class="section-heading">
+          <h2 id="source-title">More Repos</h2>
+          <p>These are useful source pages that do not currently advertise a separate GitHub Pages landing URL.</p>
+        </div>
+        <div class="source-list">
+          <a class="source" href="https://github.com/MichaelBrandonFalk/Chrome-Terminal-Script-to-Copy-Slack-Message-Text">
+            <span>
+              <strong>Chrome Terminal Script to Copy Slack Message Text</strong>
+              <span>Repository for the Chrome DevTools script that captures Slack thread text.</span>
+            </span>
+            <span class="card-footer">Open repo <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+          <a class="source" href="https://github.com/MichaelBrandonFalk">
+            <span>
+              <strong>Full GitHub Profile</strong>
+              <span>Browse the rest of the public utilities, experiments, and project repos.</span>
+            </span>
+            <span class="card-footer">Open profile <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+        </div>
+      </section>
+
+      <footer>
+        Built as a public directory for Michael Brandon Falk's GitHub Pages projects.
+      </footer>
+    </main>
+  </body>
+</html>
