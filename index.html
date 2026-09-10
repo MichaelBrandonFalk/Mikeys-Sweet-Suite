@@ -53,59 +53,8 @@
         padding: 28px 0 48px;
       }
 
-      .topbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 18px;
-        margin-bottom: 42px;
-      }
-
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        font-weight: 800;
-        letter-spacing: 0;
-      }
-
-      .mark {
-        display: grid;
-        width: 44px;
-        height: 44px;
-        place-items: center;
-        border: 1px solid rgba(21, 115, 71, 0.18);
-        border-radius: 8px;
-        background: linear-gradient(145deg, #ffffff, var(--mint));
-        box-shadow: 0 10px 28px rgba(21, 115, 71, 0.16);
-      }
-
-      .mark svg {
-        width: 27px;
-        height: 27px;
-      }
-
-      .github-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        min-height: 42px;
-        padding: 0 14px;
-        border: 1px solid rgba(23, 33, 29, 0.14);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.78);
-        color: var(--ink);
-        font-size: 14px;
-        font-weight: 700;
-        text-decoration: none;
-      }
-
-      .github-link svg {
-        width: 18px;
-        height: 18px;
-      }
-
       .hero {
+        padding-top: 34px;
         margin-bottom: 34px;
       }
 
@@ -285,14 +234,9 @@
           padding-top: 18px;
         }
 
-        .topbar,
         .section-heading {
           align-items: stretch;
           flex-direction: column;
-        }
-
-        .github-link {
-          justify-content: center;
         }
 
         .hero {
@@ -311,29 +255,11 @@
   </head>
   <body>
     <main class="page">
-      <nav class="topbar" aria-label="Primary">
-        <div class="brand">
-          <span class="mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 3.5 14.6 9l5.9.8-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.8L12 3.5Z" fill="#157347"/>
-              <path d="M8.8 12.1h6.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span>Mikey's Sweet Suite</span>
-        </div>
-        <a class="github-link" href="https://github.com/MichaelBrandonFalk" aria-label="Open Michael Brandon Falk on GitHub">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M9 19c-4.2 1.3-4.2-2-6-2.4M15 22v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.7-1.4 5.7-6.2 0-1.4-.5-2.6-1.3-3.5.1-.3.6-1.8-.1-3.5 0 0-1.1-.3-3.6 1.3a12.3 12.3 0 0 0-6.4 0C6.3 3 5.2 3.3 5.2 3.3c-.7 1.7-.2 3.2-.1 3.5-.8.9-1.3 2.1-1.3 3.5 0 4.8 2.9 5.9 5.7 6.2-.4.4-.6.8-.6 1.6V22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          GitHub
-        </a>
-      </nav>
-
       <section class="hero" aria-labelledby="page-title">
         <div>
           <h1 id="page-title">Mikey's Sweet Suite</h1>
           <p class="intro">
-            One public front door for the GitHub Pages tools, download hubs, and small utilities that make repeat work faster.
+            One sweet suite where you can find some small tools that make repeat work faster.
           </p>
         </div>
       </section>
@@ -341,7 +267,6 @@
       <section aria-labelledby="pages-title">
         <div class="section-heading">
           <h2 id="pages-title">The List</h2>
-          <p>All entries live in one place now. Most open a public GitHub Pages site; repo-only entries are labeled.</p>
         </div>
 
         <div class="suite-grid">
