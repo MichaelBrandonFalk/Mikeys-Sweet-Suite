@@ -4,13 +4,15 @@ A public GitHub Pages landing page for Michael Brandon Falk's other public GitHu
 
 ## Included links
 
-- External Reference Maker
 - Ultimate Avail Maker
 - Name Everything Better
+- Description Shortener
 - Subtitle Converter
+- Find That Text
 - S3 Organizer Downloads
 - Cuss Buster 2000
 - TE Tool Downloads
+- TE Tool - Iconik Lite Version
 - Local File Renamer
 - Rally Connect Input CSV Maker
 - HISTI
