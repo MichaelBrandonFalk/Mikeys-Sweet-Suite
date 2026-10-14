@@ -106,6 +106,7 @@
       .card {
         position: relative;
         display: grid;
+        grid-template-rows: auto auto 1fr auto;
         min-height: 224px;
         padding: 18px;
         border: 1px solid rgba(23, 33, 29, 0.12);
@@ -162,10 +163,6 @@
         letter-spacing: 0;
       }
 
-      .icon.wordmark.avails {
-        background: var(--plum);
-      }
-
       .icon.wordmark.github {
         background: var(--ink);
       }
@@ -196,18 +193,47 @@
 
       .card-footer {
         align-self: end;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 20px;
+      }
+
+      .card-link {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        margin-top: 20px;
         color: var(--green);
         font-size: 14px;
         font-weight: 800;
       }
 
-      .card-footer svg {
+      .card-link svg {
         width: 17px;
         height: 17px;
+      }
+
+      .platforms {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 7px;
+      }
+
+      .platforms img {
+        display: block;
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+        opacity: 0.72;
+        transition: opacity 170ms ease;
+      }
+
+      .card:hover .platforms img,
+      .card:focus-visible .platforms img {
+        opacity: 1;
       }
 
       footer {
@@ -268,14 +294,20 @@
         <div class="suite-grid">
           <a class="card" href="https://michaelbrandonfalk.github.io/UltimateAvailMaker/">
             <div class="card-top">
-              <span class="icon wordmark avails" aria-hidden="true">
-                AV
+              <span class="icon" aria-hidden="true">
+                <img src="assets/icons/ultimate-avail-maker.png" alt="">
               </span>
               <span class="badge">Avails</span>
             </div>
             <h3>Ultimate Avail Maker</h3>
             <p>Create platform-ready availability sheets for Standard EMA and YouTube workflows.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS and the web">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+                <img src="assets/platforms/web.svg" alt="" title="Web app">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://michaelbrandonfalk.github.io/NameEverythingBetter/">
@@ -287,7 +319,13 @@
             </div>
             <h3>Name Everything Better</h3>
             <p>Use naming helpers and conventions for cleaner video assets, art files, and package paths.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS and the web">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+                <img src="assets/platforms/web.svg" alt="" title="Web app">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://michaelbrandonfalk.github.io/description-shortener/#downloads">
@@ -299,7 +337,15 @@
             </div>
             <h3>Description Shortener</h3>
             <p>Shorten descriptions to a chosen character limit while keeping the essential meaning intact.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS, Windows, Linux, and the web">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+                <img src="assets/platforms/windows.svg" alt="" title="Windows">
+                <img src="assets/platforms/linux.svg" alt="" title="Linux">
+                <img src="assets/platforms/web.svg" alt="" title="Web app">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://michaelbrandonfalk.github.io/Subtitle-Converter/">
@@ -311,7 +357,14 @@
             </div>
             <h3>Subtitle Converter</h3>
             <p>Convert subtitle files between common caption formats from a browser-friendly tool page.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS, Windows, and the web">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+                <img src="assets/platforms/windows.svg" alt="" title="Windows">
+                <img src="assets/platforms/web.svg" alt="" title="Web app">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://michaelbrandonfalk.github.io/Find-That-Text/">
@@ -323,7 +376,14 @@
             </div>
             <h3>Find That Text</h3>
             <p>Find and rank visible screen-text moments in video for subtitle and localization review.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS, Windows, and Linux">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+                <img src="assets/platforms/windows.svg" alt="" title="Windows">
+                <img src="assets/platforms/linux.svg" alt="" title="Linux">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://michaelbrandonfalk.github.io/S3-Organizer/">
@@ -335,7 +395,13 @@
             </div>
             <h3>S3 Organizer Downloads</h3>
             <p>Find current S3 Organizer app downloads and supporting release notes in one place.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS and Windows">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+                <img src="assets/platforms/windows.svg" alt="" title="Windows">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://michaelbrandonfalk.github.io/CussBuster2000/">
@@ -347,7 +413,14 @@
             </div>
             <h3>Cuss Buster 2000</h3>
             <p>Check and clean text with a lightweight page built for fast review passes.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS, Windows, and the web">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+                <img src="assets/platforms/windows.svg" alt="" title="Windows">
+                <img src="assets/platforms/web.svg" alt="" title="Web app">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://michaelbrandonfalk.github.io/TE-Tool/">
@@ -359,7 +432,12 @@
             </div>
             <h3>TE Tool Downloads</h3>
             <p>Open the TE Tool download page with install notes and task-specific documentation.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://michaelbrandonfalk.github.io/te-tool-iconik-lite-version/">
@@ -371,7 +449,13 @@
             </div>
             <h3>TE Tool - Iconik Lite Version</h3>
             <p>Run lightweight technical metadata checks on S3-hosted and Iconik-managed videos.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS and the web">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+                <img src="assets/platforms/web.svg" alt="" title="Web app">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://michaelbrandonfalk.github.io/Local-File-Renamer/">
@@ -383,7 +467,12 @@
             </div>
             <h3>Local File Renamer</h3>
             <p>Batch-rename local files with a focused tool page for controlled cleanup work.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://michaelbrandonfalk.github.io/rally-connect-input-csv-maker-downloads/">
@@ -395,7 +484,12 @@
             </div>
             <h3>Rally Connect Input CSV Maker</h3>
             <p>Download the Rally Connect CSV maker, mapping guides, and reference spreadsheets.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://michaelbrandonfalk.github.io/HISTI/">
@@ -405,9 +499,15 @@
               </span>
               <span class="badge">Tool</span>
             </div>
-            <h3>HISTI V1.2</h3>
+            <h3>HISTI V1.7</h3>
             <p>Open the HISTI landing page for the current browser-hosted helper tool.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS and the web">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+                <img src="assets/platforms/web.svg" alt="" title="Web app">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://michaelbrandonfalk.github.io/iconik-locator/">
@@ -419,7 +519,12 @@
             </div>
             <h3>Iconik Locator</h3>
             <p>Paste an iconik link and look up the matching S3 path from a simple public page.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://michaelbrandonfalk.github.io/11Labs_LiteCaptionMaker/">
@@ -431,7 +536,13 @@
             </div>
             <h3>ElevenLabs Lite Caption Maker</h3>
             <p>Turn ElevenLabs Scribe output into cleaner caption files with app, CLI, and browser options.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS and the web">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+                <img src="assets/platforms/web.svg" alt="" title="Web app">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://michaelbrandonfalk.github.io/github-snapshot-backup-lite/">
@@ -443,7 +554,12 @@
             </div>
             <h3>GitHub Snapshot Backup Lite</h3>
             <p>Download and review the lightweight utility for keeping regular snapshots of GitHub repositories.</p>
-            <span class="card-footer">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open site <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on macOS">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://github.com/MichaelBrandonFalk/Chrome-Terminal-Script-to-Copy-Slack-Message-Text">
@@ -455,7 +571,14 @@
             </div>
             <h3>Chrome Terminal Script to Copy Slack Message Text</h3>
             <p>Repository for the Chrome DevTools script that captures Slack message text.</p>
-            <span class="card-footer">Open repo <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open repo <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Runs in Chrome on macOS, Windows, and Linux">
+                <img src="assets/platforms/apple.svg" alt="" title="macOS">
+                <img src="assets/platforms/windows.svg" alt="" title="Windows">
+                <img src="assets/platforms/linux.svg" alt="" title="Linux">
+              </span>
+            </span>
           </a>
 
           <a class="card" href="https://github.com/MichaelBrandonFalk">
@@ -467,7 +590,12 @@
             </div>
             <h3>Full GitHub Profile</h3>
             <p>Browse the rest of the public utilities, experiments, and project repositories.</p>
-            <span class="card-footer">Open profile <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="card-footer">
+              <span class="card-link">Open profile <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="platforms" role="img" aria-label="Available on the web">
+                <img src="assets/platforms/web.svg" alt="" title="Web">
+              </span>
+            </span>
           </a>
         </div>
       </section>
